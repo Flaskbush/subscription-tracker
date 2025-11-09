@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const emailValidation = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;
+// const emailValidation = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;
 
 const userSchema = new mongoose.Schema({
     name: { 
@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         minLength: 5,
         maxLength: 100,
-        match: [emailValidation, 'Please fill a valid email address']
+        match: [/\S+@\S+\.\S+/, 'Please fill a valid email address']
     },
     password: {
         type: String,
